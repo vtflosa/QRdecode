@@ -19,7 +19,7 @@ mkdir -p ~/QRdecode
 cd ~/QRdecode
 ```
 
-Copiez ensuite les fichiers `main.py`, `requirements.txt` et `QRdecode.png` dans ce dossier.
+### Copiez ensuite les fichiers `main.py`, `requirements.txt` et `QRdecode.png` dans ce dossier.
 
 ---
 

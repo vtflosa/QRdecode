@@ -106,6 +106,7 @@ Terminal=false
 Categories=Utility;
 ```
 
+Fermez l'éditeur de texte et enregistrez le texte.
 Rendez le fichier `.desktop` exécutable :
 
 ```bash

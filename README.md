@@ -92,7 +92,7 @@ gedit ~/Bureau/QRdecode.desktop
 
 > **Note :** Sur certaines distributions, le dossier peut s'appeler `Desktop` au lieu de `Bureau`. Il peut être nécessaire de changer l'éditeur de texte par défaut
 
-Copiez-y le contenu suivant :
+Copiez dans l'éditeur de texte qui vient de s'ouvrir le contenu suivant :
 
 ```desktop
 [Desktop Entry]

@@ -78,37 +78,37 @@ sudo pacman -S tk
 
 ### 5. Créer un raccourci sur le bureau
 
-Créez un fichier `.desktop` pour le raccourci (Linux Mint):
 
+Créez un fichier `.desktop` pour le raccourci avec votre éditeur de texte :
+
+**Pour Linux Mint :**
 ```bash
 xed ~/Bureau/QRdecode.desktop
 ```
 
-Sur Ubuntu :
-
+**Pour Ubuntu :**
 ```bash
 gedit ~/Bureau/QRdecode.desktop
 ```
 
-> **Note :** Sur certaines distributions, le dossier peut s'appeler `Desktop` au lieu de `Bureau`. Il peut être nécessaire de changer l'éditeur de texte par défaut
+> **Note :** Sur certaines distributions, le dossier peut s'appeler `Desktop` au lieu de `Bureau`.
 
 Copiez dans l'éditeur de texte qui vient de s'ouvrir le contenu suivant :
-
 ```desktop
 [Desktop Entry]
 Version=1.0
 Type=Application
 Name=QRdecode
 Comment=Détecter et décoder les QR codes à l'écran
-Exec= ~/QRdecode/venv/bin/python3 ~/QRdecode/main.py
-Icon= ~/QRdecode/QRdecode.png
+Exec=/home/VOTRE_NOM_UTILISATEUR/QRdecode/venv/bin/python3 /home/VOTRE_NOM_UTILISATEUR/QRdecode/main.py
+Icon=/home/VOTRE_NOM_UTILISATEUR/QRdecode/QRdecode.png
 Terminal=false
 Categories=Utility;
 ```
 
-Fermez l'éditeur de texte et enregistrez le texte.
-Rendez le fichier `.desktop` exécutable :
+> **Important :** Remplacez **les 3 occurrences** de `VOTRE_NOM_UTILISATEUR` par votre nom d'utilisateur Linux réel.
 
+Enregistrez et fermez l'éditeur, puis rendez le fichier `.desktop` exécutable :
 ```bash
 chmod +x ~/Bureau/QRdecode.desktop
 ```

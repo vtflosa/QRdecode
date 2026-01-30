@@ -17,7 +17,7 @@ QRdecode est un programme Python qui détecte automatiquement les QR codes affic
 
 Télécharger le fichier [install_qrdecode.sh](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.sh) (clique-droit -> enregistre la cible du lien sous...)
 
-Ouvrez un terminal là ou le fichier est téléchargé et exécutez la commande dans un terminal:
+Ouvrez un terminal là ou le fichier est téléchargé et exécutez la commande:
 
 ```bash
 bash install_qrdecode.sh

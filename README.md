@@ -7,116 +7,14 @@ QRdecode est un programme Python qui détecte automatiquement les QR codes affic
 
 ## Installation
 
-### 1. Créer le dossier et copier les fichiers
 
-Ouvrez un terminal et exécutez les commandes suivantes :
-
-```bash
-# Créer le dossier QRdecode dans votre répertoire personnel
-mkdir -p ~/QRdecode
-
-# Se déplacer dans ce dossier
-cd ~/QRdecode
-```
-
-> #### Copiez ensuite les fichiers `main.py`, `requirements.txt` et `QRdecode.png` dans ce dossier.
-
----
-
-### 2. Créer un environnement virtuel Python
+Télécharger le fichier `[install_qrdecode.sh](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.sh)`
+Ouvrez un terminal là ou le fichier est téléchargé et exécutez la commande :
 
 ```bash
-# Créer l'environnement virtuel
-python3 -m venv venv
+bash install_qrdecode.sh
 
-# Activer l'environnement virtuel
-source venv/bin/activate
 ```
-
-> **Note :** Vous verrez `(venv)` apparaître au début de votre ligne de commande, indiquant que l'environnement virtuel est activé.
-
----
-
-### 3. Installer les dépendances Python
-
-```bash
-# Installer les packages depuis requirements.txt
-pip install -r requirements.txt
-```
-
----
-
-### 4. Vérifier l'installation de Tkinter
-
-Tkinter est généralement pré-installé avec Python, mais vérifiez son installation :
-
-```bash
-# Tester Tkinter
-python3 -c "import tkinter"
-```
-
-Si vous obtenez une erreur, installez Tkinter :
-
-**Pour Ubuntu/Debian :**
-```bash
-sudo apt-get update
-sudo apt-get install python3-tk
-```
-
-**Pour Fedora :**
-```bash
-sudo dnf install python3-tkinter
-```
-
-**Pour Arch Linux :**
-```bash
-sudo pacman -S tk
-```
-
----
-
-
-### 5. Créer un raccourci sur le bureau
-
-
-Créez un fichier `.desktop` pour le raccourci avec votre éditeur de texte :
-
-**Pour Linux Mint :**
-```bash
-xed ~/Bureau/QRdecode.desktop
-```
-
-**Pour Ubuntu :**
-```bash
-gedit ~/Bureau/QRdecode.desktop
-```
-
-> **Note :** Sur certaines distributions, le dossier peut s'appeler `Desktop` au lieu de `Bureau`.
-
-Copiez dans l'éditeur de texte qui vient de s'ouvrir le contenu suivant :
-```desktop
-[Desktop Entry]
-Version=1.0
-Type=Application
-Name=QRdecode
-Comment=Détecter et décoder les QR codes à l'écran
-Exec=/home/VOTRE_NOM_UTILISATEUR/QRdecode/venv/bin/python3 /home/VOTRE_NOM_UTILISATEUR/QRdecode/main.py
-Icon=/home/VOTRE_NOM_UTILISATEUR/QRdecode/QRdecode.png
-Terminal=false
-Categories=Utility;
-```
-
-> **Important :** Remplacez **les 3 occurrences** de `VOTRE_NOM_UTILISATEUR` par votre nom d'utilisateur Linux réel.
-
-Enregistrez et fermez l'éditeur, puis rendez le fichier `.desktop` exécutable :
-```bash
-chmod +x ~/Bureau/QRdecode.desktop
-```
-
-Sur certains environnements de bureau (comme GNOME), vous devrez peut-être autoriser le lancement :
-- Clic droit sur l'icône → "Autoriser le lancement" ou "Trust and Launch"
-
----
 
 ## Utilisation
 

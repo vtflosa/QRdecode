@@ -55,11 +55,8 @@ bash install_qrdecode.sh
 Pour supprimer complètement QRdecode :
 
 ```bash
-# Supprimer le dossier
-rm -rf ~/QRdecode
+ bash ~/.local/share/qrdecode/uninstall.sh
 
-# Supprimer le raccourci
-rm ~/Bureau/QRdecode.desktop
 ```
 
 ---

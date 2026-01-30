@@ -8,12 +8,13 @@ QRdecode est un programme Python qui détecte automatiquement les QR codes affic
 ## Installation
 
 
-Télécharger le fichier `[install_qrdecode.sh](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.sh)`
-Ouvrez un terminal là ou le fichier est téléchargé et exécutez la commande :
+Télécharger le fichier [install_qrdecode.sh](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.sh) (clique-droit -> enregistre la cible du lien sous...)
+
+Ouvrez un terminal là ou le fichier est téléchargé et exécutez la commande dans un terminal:
+
 
 ```bash
 bash install_qrdecode.sh
-
 ```
 
 ## Utilisation
@@ -27,6 +28,7 @@ bash install_qrdecode.sh
 
 2. **Lancez le programme**
    - Double-cliquez sur l'icône QRdecode sur votre bureau
+   - Ou lancez-le depuis menu des applications (cherchez 'QRdecode')
 
 3. **Validation des liens**
    - Une fenêtre popup s'affiche pour chaque QR code détecté
@@ -45,35 +47,6 @@ bash install_qrdecode.sh
 - ✅ Compatible **multi-écrans**
 - ❌ Ne fonctionne pas si le QR code est partiellement masqué
 - ❌ Ne fonctionne pas si le QR code est trop petit ou flou
-
----
-
-## Dépannage
-
-### Le programme ne démarre pas
-```bash
-# Vérifiez que l'environnement virtuel fonctionne
-cd ~/QRdecode
-source venv/bin/activate
-python main.py
-```
-
-### Erreur "No module named cv2"
-```bash
-cd ~/QRdecode
-source venv/bin/activate
-pip install --upgrade opencv-python
-```
-
-### Erreur Tkinter
-```bash
-# Réinstallez python3-tk
-sudo apt-get install --reinstall python3-tk
-```
-
-### Aucun QR code détecté
-- Vérifiez que le QR code est entièrement visible
-- Augmentez la taille du QR code à l'écran
 
 ---
 
@@ -98,15 +71,6 @@ rm ~/Bureau/QRdecode.desktop
 - **Capture d'écran :** Utilise MSS pour une capture rapide
 - **Détection :** OpenCV QRCodeDetector avec support multi-QR codes
 - **Navigateur :** Ouvre le navigateur par défaut du système
-
----
-
-## Support
-
-En cas de problème, vérifiez :
-1. La version de Python (minimum 3.6) : `python3 --version`
-2. Les logs dans le terminal lors du lancement manuel
-3. Les permissions d'exécution des fichiers
 
 ---
 

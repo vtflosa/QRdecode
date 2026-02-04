@@ -1,31 +1,34 @@
 # QRdecode - Guide d'installation et d'utilisation / Installation and User Guide
 
-**[🇫🇷 Version Française](#version-française) | [🇬🇧 English Version](#english-version)**
+**🇫🇷 Français:** [🐧 Linux](#-linux) | [🪟 Windows](#-windows)  
+**🇬🇧 English:** [🐧 Linux](#-linux-1) | [🪟 Windows](#-windows-1)
 
 ---
 
 ## Version Française
 
-# QRdecode - Guide d'installation et d'utilisation pour Linux
+# QRdecode - Guide d'installation et d'utilisation
 
 ## Description
 QRdecode est un programme Python qui détecte automatiquement les QR codes affichés à l'écran de votre ordinateur, les décode et ouvre les liens correspondants dans votre navigateur.
 
 ---
 
-## Installation
+## 🐧 Linux
+
+### Installation
 
 Télécharger le fichier [install_qrdecode.sh](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.sh) (clique-droit -> enregistre la cible du lien sous...)
 
-Ouvrez un terminal là ou le fichier est téléchargé et exécutez la commande:
+Ouvrez un terminal là où le fichier est téléchargé et exécutez la commande:
 
 ```bash
 bash install_qrdecode.sh
 ```
 
-## Utilisation
+### Utilisation
 
-### Comment utiliser QRdecode
+#### Comment utiliser QRdecode
 
 1. **Affichez le QR code à l'écran**
    - Ouvrez l'image, le site web ou le document contenant le QR code
@@ -46,7 +49,7 @@ bash install_qrdecode.sh
    - Les liens validés s'ouvrent automatiquement dans des onglets de votre navigateur
    - Si aucun QR code n'est détecté, un message vous en informe
 
-### Conseils d'utilisation
+#### Conseils d'utilisation
 
 - ✅ Le QR code doit être **net et bien contrasté**
 - ✅ Fonctionne avec **plusieurs QR codes** simultanément
@@ -54,14 +57,62 @@ bash install_qrdecode.sh
 - ❌ Ne fonctionne pas si le QR code est partiellement masqué
 - ❌ Ne fonctionne pas si le QR code est trop petit ou flou
 
----
-
-## Désinstallation
+### Désinstallation
 
 Pour supprimer complètement QRdecode :
 
 ```bash
 bash ~/.local/share/qrdecode/uninstall.sh
+```
+
+---
+
+## 🪟 Windows
+
+### Installation
+
+Télécharger le fichier [install_qrdecode.bat](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.bat) (clique-droit -> enregistre la cible du lien sous...)
+
+Double-cliquez sur le fichier `install_qrdecode.bat` téléchargé
+
+### Utilisation
+
+#### Comment utiliser QRdecode
+
+1. **Affichez le QR code à l'écran**
+   - Ouvrez l'image, le site web ou le document contenant le QR code
+   - Assurez-vous que le QR code est **bien visible et entièrement affiché** à l'écran
+   - Le QR code peut être n'importe où sur l'écran (même avec plusieurs moniteurs)
+
+2. **Lancez le programme**
+   - Double-cliquez sur le raccourci QRdecode sur votre bureau
+   - Ou lancez-le depuis le Menu Démarrer (cherchez 'QRdecode')
+
+3. **Validation des liens**
+   - Une fenêtre popup s'affiche pour chaque QR code détecté
+   - Elle vous montre le lien décodé
+   - Cliquez sur **"OK"** pour ouvrir le lien dans votre navigateur
+   - Cliquez sur **"Annuler"** pour ignorer ce lien
+
+4. **Résultat**
+   - Les liens validés s'ouvrent automatiquement dans des onglets de votre navigateur
+   - Si aucun QR code n'est détecté, un message vous en informe
+
+#### Conseils d'utilisation
+
+- ✅ Le QR code doit être **net et bien contrasté**
+- ✅ Fonctionne avec **plusieurs QR codes** simultanément
+- ✅ Compatible **multi-écrans**
+- ❌ Ne fonctionne pas si le QR code est partiellement masqué
+- ❌ Ne fonctionne pas si le QR code est trop petit ou flou
+
+### Désinstallation
+
+Pour supprimer complètement QRdecode :
+
+```batch
+REM Ouvrir l'invite de commandes, copier et exécuter :
+%LOCALAPPDATA%\qrdecode\uninstall.bat
 ```
 
 ---
@@ -76,21 +127,23 @@ bash ~/.local/share/qrdecode/uninstall.sh
 
 ---
 
-**[⬆ Retour en haut](#qrdecode---guide-dinstallation-et-dutilisation--installation-and-user-guide) | [🇬🇧 English Version](#english-version)**
+**[⬆ Retour en haut](#qrdecode---guide-dinstallation-et-dutilisation--installation-and-user-guide)**
 
 ---
 ---
 
 ## English Version
 
-# QRdecode - Installation and User Guide for Linux
+# QRdecode - Installation and User Guide
 
 ## Description
 QRdecode is a Python program that automatically detects QR codes displayed on your computer screen, decodes them, and opens the corresponding links in your browser.
 
 ---
 
-## Installation
+## 🐧 Linux
+
+### Installation
 
 Download the file [install_qrdecode.sh](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.sh) (right-click -> save link as...)
 
@@ -100,9 +153,9 @@ Open a terminal where the file is downloaded and run the command:
 bash install_qrdecode.sh
 ```
 
-## Usage
+### Usage
 
-### How to use QRdecode
+#### How to use QRdecode
 
 1. **Display the QR code on screen**
    - Open the image, website, or document containing the QR code
@@ -123,7 +176,7 @@ bash install_qrdecode.sh
    - Validated links automatically open in tabs in your browser
    - If no QR code is detected, a message informs you
 
-### Usage tips
+#### Usage tips
 
 - ✅ The QR code must be **sharp and well contrasted**
 - ✅ Works with **multiple QR codes** simultaneously
@@ -131,14 +184,62 @@ bash install_qrdecode.sh
 - ❌ Does not work if the QR code is partially hidden
 - ❌ Does not work if the QR code is too small or blurry
 
----
-
-## Uninstallation
+### Uninstallation
 
 To completely remove QRdecode:
 
 ```bash
 bash ~/.local/share/qrdecode/uninstall.sh
+```
+
+---
+
+## 🪟 Windows
+
+### Installation
+
+Download the file [install_qrdecode.bat](https://raw.githubusercontent.com/vtflosa/QRdecode/main/install_qrdecode.bat) (right-click -> save link as...)
+
+Double-click on the downloaded `install_qrdecode.bat` file
+
+### Usage
+
+#### How to use QRdecode
+
+1. **Display the QR code on screen**
+   - Open the image, website, or document containing the QR code
+   - Make sure the QR code is **clearly visible and fully displayed** on screen
+   - The QR code can be anywhere on the screen (even with multiple monitors)
+
+2. **Launch the program**
+   - Double-click the QRdecode shortcut on your desktop
+   - Or launch it from the Start Menu (search for 'QRdecode')
+
+3. **Link validation**
+   - A popup window appears for each detected QR code
+   - It shows you the decoded link
+   - Click **"OK"** to open the link in your browser
+   - Click **"Cancel"** to ignore this link
+
+4. **Result**
+   - Validated links automatically open in tabs in your browser
+   - If no QR code is detected, a message informs you
+
+#### Usage tips
+
+- ✅ The QR code must be **sharp and well contrasted**
+- ✅ Works with **multiple QR codes** simultaneously
+- ✅ **Multi-screen** compatible
+- ❌ Does not work if the QR code is partially hidden
+- ❌ Does not work if the QR code is too small or blurry
+
+### Uninstallation
+
+To completely remove QRdecode:
+
+```batch
+REM Open Command Prompt, copy and execute:
+%LOCALAPPDATA%\qrdecode\uninstall.bat
 ```
 
 ---
@@ -153,7 +254,7 @@ bash ~/.local/share/qrdecode/uninstall.sh
 
 ---
 
-**[⬆ Back to top](#qrdecode---guide-dinstallation-et-dutilisation--installation-and-user-guide) | [🇫🇷 Version Française](#version-française)**
+**[⬆ Back to top](#qrdecode---guide-dinstallation-et-dutilisation--installation-and-user-guide)**
 
 ---
 

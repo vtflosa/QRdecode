@@ -2,20 +2,19 @@
 setlocal enabledelayedexpansion
 
 REM ################################################################################
-REM CONFIGURATION - Modify these variables to adapt to your program
+REM CONFIGURATION - QRdecode Windows Installation Script
 REM ################################################################################
 
 REM Application information
 set "APP_NAME=QRdecode"
-set "APP_DESCRIPTION=QR code decoder"
-set "APP_COMMENT=Screen QR code decoder"
+set "APP_DESCRIPTION=QR code decoder from screen"
+set "APP_COMMENT=Detect and decode QR codes on screen"
 
 REM GitHub repository URL (without trailing /)
 set "GITHUB_REPO_URL=https://raw.githubusercontent.com/vtflosa/QRdecode/main"
 
 REM List of files to download from GitHub (space-separated)
-REM Format: "remote_filename:local_filename" (or just "filename" if identical)
-set "DOWNLOAD_FILES=main.py requirements.txt QRdecode.png QRdecode.ico"
+set "DOWNLOAD_FILES=main.py requirements.txt QRdecode.png"
 
 REM Main Python file to execute
 set "MAIN_PYTHON_FILE=main.py"
@@ -73,7 +72,7 @@ if "%NEEDS_TKINTER%"=="true" (
 )
 
 REM Create installation directory
-set "INSTALL_DIR=%LOCALAPPDATA%\%APP_NAME%"
+set "INSTALL_DIR=%LOCALAPPDATA%\QRdecode"
 echo [INFO] Creating installation folder: %INSTALL_DIR%
 if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
 cd /d "%INSTALL_DIR%"
@@ -97,10 +96,9 @@ for %%f in (%DOWNLOAD_FILES%) do (
     )
     
     echo [INFO] Downloading !remote_file!...
-    powershell -Command "& {try { Invoke-WebRequest -Uri '%GITHUB_REPO_URL%/!remote_file!' -OutFile '!local_file!' -UseBasicParsing -ErrorAction Stop } catch { exit 1 }}"
+    powershell -Command "try { Invoke-WebRequest -Uri '%GITHUB_REPO_URL%/!remote_file!' -OutFile '!local_file!' -UseBasicParsing } catch { exit 1 }"
     if errorlevel 1 (
         echo [ERROR] Failed to download !remote_file!
-        echo [ERROR] URL: %GITHUB_REPO_URL%/!remote_file!
         pause
         exit /b 1
     )
@@ -141,13 +139,15 @@ if errorlevel 1 (
 call venv\Scripts\deactivate.bat
 echo [INFO] Dependencies installed
 
-REM Create launcher script (VBScript for no console window)
+REM Create launcher script
 echo [INFO] Creating launcher script...
 (
-    echo Set WshShell = CreateObject^("WScript.Shell"^)
-    echo WshShell.Run """%INSTALL_DIR%\venv\Scripts\pythonw.exe"" ""%INSTALL_DIR%\%MAIN_PYTHON_FILE%""", 0, False
-    echo Set WshShell = Nothing
-) > "%INSTALL_DIR%\launch_%APP_NAME%.vbs"
+    echo @echo off
+    echo cd /d "%INSTALL_DIR%"
+    echo call venv\Scripts\activate.bat
+    echo python %MAIN_PYTHON_FILE%
+    echo call venv\Scripts\deactivate.bat
+) > "%INSTALL_DIR%\launch_QRdecode.bat"
 
 echo [INFO] Launcher script created
 
@@ -156,7 +156,7 @@ echo [INFO] Creating desktop shortcut...
 set "DESKTOP=%USERPROFILE%\Desktop"
 set "SHORTCUT=%DESKTOP%\%APP_NAME%.lnk"
 
-powershell -Command "& {$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); $Shortcut.TargetPath = '%INSTALL_DIR%\launch_%APP_NAME%.vbs'; $Shortcut.WorkingDirectory = '%INSTALL_DIR%'; $Shortcut.IconLocation = '%INSTALL_DIR%\%ICON_FILE%'; $Shortcut.Description = '%APP_COMMENT%'; $Shortcut.Save()}"
+powershell -Command "$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%SHORTCUT%'); $Shortcut.TargetPath = '%INSTALL_DIR%\launch_QRdecode.bat'; $Shortcut.WorkingDirectory = '%INSTALL_DIR%'; $Shortcut.IconLocation = '%INSTALL_DIR%\%ICON_FILE%'; $Shortcut.Description = '%APP_COMMENT%'; $Shortcut.Save()"
 
 if exist "%SHORTCUT%" (
     echo [INFO] Desktop shortcut created
@@ -169,7 +169,7 @@ echo [INFO] Creating Start Menu shortcut...
 set "START_MENU=%APPDATA%\Microsoft\Windows\Start Menu\Programs"
 set "START_SHORTCUT=%START_MENU%\%APP_NAME%.lnk"
 
-powershell -Command "& {$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%START_SHORTCUT%'); $Shortcut.TargetPath = '%INSTALL_DIR%\launch_%APP_NAME%.vbs'; $Shortcut.WorkingDirectory = '%INSTALL_DIR%'; $Shortcut.IconLocation = '%INSTALL_DIR%\%ICON_FILE%'; $Shortcut.Description = '%APP_COMMENT%'; $Shortcut.Save()}"
+powershell -Command "$WshShell = New-Object -ComObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%START_SHORTCUT%'); $Shortcut.TargetPath = '%INSTALL_DIR%\launch_QRdecode.bat'; $Shortcut.WorkingDirectory = '%INSTALL_DIR%'; $Shortcut.IconLocation = '%INSTALL_DIR%\%ICON_FILE%'; $Shortcut.Description = '%APP_COMMENT%'; $Shortcut.Save()"
 
 if exist "%START_SHORTCUT%" (
     echo [INFO] Start Menu shortcut created
@@ -200,7 +200,7 @@ echo [INFO] %APP_NAME% has been installed in: %INSTALL_DIR%
 echo [INFO] You can now launch the application from:
 echo   - The desktop shortcut
 echo   - The Start Menu
-echo   - Running: %INSTALL_DIR%\launch_%APP_NAME%.vbs
+echo   - Running: %INSTALL_DIR%\launch_QRdecode.bat
 echo.
 echo [INFO] To uninstall cleanly, run: %INSTALL_DIR%\uninstall.bat
 echo.
